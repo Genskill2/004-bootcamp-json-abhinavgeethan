@@ -14,8 +14,8 @@ def compute_phi(file_name,event):
     f=0
     g=0
     h=0
-    with open(file_name,'r') as f:
-        data=json.load(f)
+    with open(file_name,'r') as file:
+        data=json.load(file)
         for datum in data:
             if (event in datum['events']) and (datum['squirrel']=='False'):
                 a+=1
