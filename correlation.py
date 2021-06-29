@@ -6,27 +6,27 @@ def load_journal(file_name):
         return json.load(f)
 
 def compute_phi(file_name,event):
-    n11=n00=n10=n01=n13=n03=n31=n30=0
+    a=b=c=d=e=f=g=h=0
     with open(file_name,'r') as f:
         data=json.load(f)
         for datum in data:
             if (event in datum['events']) and (datum['squirrel']=='False'):
-                n11+=1
+                a+=1
             if (event not in datum['events']) and (datum['squirrel']!='False'):
-                n00+=1
+                b+=1
             if (event in datum['events']) and (datum['squirrel']!='False'):
-                n10+=1
+                c+=1
             if (event not in datum['events']) and (datum['squirrel']=='False'):
-                n01+=1
+                d+=1
             if (event in datum['events']):
-                n13+=1
+                e+=1
             if (event not in datum['events']):
-                n03+=1
+                f+=1
             if (datum['squirrel']=='False'):
-                n31+=1
+                g+=1
             if (datum['squirrel']!='False'):
-                n30+=1
-    return (n11*n00-n10*n01)/math.sqrt(n13*n03*n31*n30)
+                h+=1
+    return (a*b-c*d)/math.sqrt(e*f*g*h)
 
 def compute_correlations(file_name):
     data=load_journal(file_name)
