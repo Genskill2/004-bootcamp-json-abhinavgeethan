@@ -6,7 +6,14 @@ def load_journal(file_name):
         return json.load(f)
 
 def compute_phi(file_name,event):
-    a=b=c=d=e=f=g=h=0
+    a=0
+    b=0
+    c=0
+    d=0
+    e=0
+    f=0
+    g=0
+    h=0
     with open(file_name,'r') as f:
         data=json.load(f)
         for datum in data:
