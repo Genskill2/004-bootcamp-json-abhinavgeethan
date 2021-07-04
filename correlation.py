@@ -17,21 +17,21 @@ def compute_phi(file_name,event):
     with open(file_name,'r') as file:
         data=json.load(file)
         for datum in data:
-            if (event in datum['events']) and (datum['squirrel']==False):
-                a+=1
-            if (not(event in datum['events'])) and (datum['squirrel']!=False):
-                b+=1
             if (event in datum['events']) and (datum['squirrel']!=False):
-                c+=1
+                a+=1
             if (not(event in datum['events'])) and (datum['squirrel']==False):
+                b+=1
+            if (event in datum['events']) and (datum['squirrel']==False):
+                c+=1
+            if (not(event in datum['events'])) and (datum['squirrel']!=False):
                 d+=1
             if (event in datum['events']):
                 e+=1
             if not (event in datum['events']):
                 f+=1
-            if (datum['squirrel']==False):
-                g+=1
             if (datum['squirrel']!=False):
+                g+=1
+            if (datum['squirrel']==False):
                 h+=1
     return (a*b-c*d)/(math.sqrt(e*f*g*h))
 
